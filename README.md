@@ -13,6 +13,7 @@
 * [Deploying ROSA in STS mode](./docs/rosa/sts)
 * [Deploying ROSA in STS mode with Private Link](./docs/rosa/sts-with-private-link)
 * [Adding AWS WAF in front of ROSA / OSD](./docs/aws/waf)
+* [Using STS and the AWS Secrets Manager CSI](./docs/rosa/aws-secrets-manager-csi)
 
 ### ARO
 
