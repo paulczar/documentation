@@ -98,8 +98,9 @@
 
 * [Deploying ACS in ROSA/ARO](./docs/security/rhacs.md)
 
-## Applications
+## Miscellaneous
 
+* [Red Hat Cost Management for Cloud Services](./docs/misc/cost-management)
 * [Deploying Astronomer to OpenShift](./docs/aro/astronomer/)
 * [Deploying 3scale API Management to ROSA/OSD](./docs/app-services/3scale)
 
