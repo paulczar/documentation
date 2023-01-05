@@ -30,7 +30,7 @@ Compared with default AWS In Tree Provider, this controller is actively develope
 
    ```bash
    export AWS_PAGER=""
-   export ROSA_CLUSTER_NAME=$(oc get infrastructure cluster -o=jsonpath="{.status.infrastructureName}"  | sed 's/-[a-z0-9]\{5\}$//')
+   export ROSA_CLUSTER_NAME=$(oc get infrastructure cluster -o=jsonpath="{.status.infrastructureName}" | rev | cut -c7- | rev)
    export REGION=$(oc get infrastructure cluster -o=jsonpath="{.status.platformStatus.aws.region}")
    export OIDC_ENDPOINT=$(oc get authentication.config.openshift.io cluster -o jsonpath='{.spec.serviceAccountIssuer}' | sed  's|^https://||')
    export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
