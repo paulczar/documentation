@@ -77,6 +77,13 @@ This guide shows how to set up Thanos to federate both System and User Workload 
       --values https://raw.githubusercontent.com/rh-mobb/helm-charts/main/charts/aro-thanos-af/files/grafana-operator.yaml
     ```
 
+    Wait for the Grafana operator to be ready (if you see `Error from server (NotFound): deployments.apps "grafana-operator" not found` wait a minute or two and try again)
+
+    ```bash
+    oc -n $NAMESPACE rollout status deployment \
+      grafana-operator-controller-manager
+    ```
+
 1. Use the `mobb/operatorhub` chart to deploy the resource-locker operator
 
     **> Note: Skip this if you already have the resource-locker operator installed, or if you do not plan to use User Workload Metrics**
@@ -86,6 +93,12 @@ This guide shows how to set up Thanos to federate both System and User Workload 
       mobb/operatorhub --version 0.1.1 --create-namespace --install \
       --values https://raw.githubusercontent.com/rh-mobb/helm-charts/main/charts/aro-thanos-af/files/resourcelocker-operator.yaml
     ```
+
+    If installing, wait for the resource-locker operator to be running
+
+    ```bash
+    oc -n resource-locker-operator rollout status \
+      deployment resource-locker-operator-controller-manager
 
 1. Deploy ARO Thanos Azure Files Helm Chart (mobb/aro-thanos-af)
 
